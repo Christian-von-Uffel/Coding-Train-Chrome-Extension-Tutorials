@@ -31,6 +31,12 @@ There are two types of scripts that we'll be dealing with here:
 
 Background scripts obviously run in the background and are always at the ready.
 
+Background scripts run when you launch Chrome.
+
+While content scripts are setup by listing js files in the manifest under a "js" array, scripts you run in the background are saved in an array that's simply called "scripts". 
+
+**Content scripts don't run until the page is already loaded.**
+
 Content scripts run conditionally. Based on what URL the user's on, the content script will either run or won't.
 
 Where content scripts run is defined by "matches" and "exclude_matches" criteria. These are arrays that contain regular expressions to define exactly what kind of URLs to run on.
@@ -40,6 +46,8 @@ If you want your content scripts to run on any Amazon webpage you'd write:
   ```
   "matches": ["*://*.amazon.com/*"]
   ```
+
+Content scripts is an array, so you can use certain content scripts for certain websites and certain content scripts for others.
 
 No matter what type of scripts you're running, whatever criteria you use to define script behavior in the manifest needs to be encapsulated by brackets.
 
@@ -59,3 +67,11 @@ Every manifest file is encapsulated inside curly braces. That's because JSON fil
       ]
     }
   ]
+
+## Error Message Notes
+
+Any time you receive an error message mentioning an indexing at 0 issue, make sure you've actually included an array to get indexed.
+
+This glitch will show up when you haven't put brackets around the list of javascript files you're indexing with the manifest.
+
+  Required value for 'content_scripts[0].js' is invalid

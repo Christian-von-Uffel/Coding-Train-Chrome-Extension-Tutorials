@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "insert sidebar?",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "*://*.youtube.com/watch?*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/watch?*"
+      ],
+      "js": [
+        "youtube-content.js"
+      ]
+    }
+  ]
+}

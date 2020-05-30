@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "replace all instances of SEO",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "*://*.facebook.com/*",
+        "*://*.twitter.com/*",
+        "*://*.amazon.com/*",
+        "*://*.github.com/*",
+        "*://*.figma.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
